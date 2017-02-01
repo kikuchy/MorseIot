@@ -19,14 +19,13 @@ public class MainActivity extends AppCompatActivity {
     private View indicator;
 
     private Gpio buttonPin;
-    private Gpio ledPin;
     private PeripheralManagerService manager;
 
     private GpioCallback onButtonPressed = new GpioCallback() {
         @Override
         public boolean onGpioEdge(Gpio gpio) {
-            Log.d("hoge", "now button pressed");
             try {
+                Log.d("hoge", "now button " + (gpio.getValue() ? "pressed" : "released"));
                 indicator.setVisibility(gpio.getValue() ? View.VISIBLE : View.GONE);
             } catch (IOException e) {
                 e.printStackTrace();

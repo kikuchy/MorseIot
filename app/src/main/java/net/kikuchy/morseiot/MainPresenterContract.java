@@ -5,4 +5,7 @@ package net.kikuchy.morseiot;
  */
 
 public interface MainPresenterContract {
+    void onChangePress(boolean isPressing, long timestamp);
+
+    void handleOnScanned(String scanned);
 }
